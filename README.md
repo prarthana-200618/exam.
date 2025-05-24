@@ -1,1 +1,149 @@
-# examm
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exam Timepass</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      color: #333;
+      transition: background 0.5s ease-in-out;
+    }
+
+    .container {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 90%;
+      width: 400px;
+      transition: all 0.5s ease-in-out;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      color: #444;
+    }
+
+    button {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      background: #ff6b6b;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #ee5253;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      text-align: center;
+      z-index: 10;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .popup.show {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 5;
+      display: none;
+    }
+
+    .overlay.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="question-box">
+    <h1 id="question">Are you really prepared for your exams, or just acting cool?</h1>
+    <button onclick="nextQuestion()">Yes</button>
+  </div>
+
+  <div class="overlay" id="overlay"></div>
+  <div class="popup" id="popup">
+    <h1>Poyi irunn padikkada 😤📚</h1>
+   
+  </div>
+
+  <script>
+    const questions = [
+      "Do you actually open the textbook, or just turn pages like Instagram reels?",
+      "Is your study plan 100% real or 90% dream?",
+      "Have you revised or just highlighted random lines for vibes?",
+      "Is your group study 90% study or 99% gossip?",
+      "Do you take breaks from studying or study during breaks?",
+      "Do you make notes or just admire others' notes on Pinterest?",
+      "Poyi irunn padikkada 😤📚"
+    ];
+
+    let currentQuestion = 0;
+
+    function nextQuestion() {
+      currentQuestion++;
+      const questionBox = document.getElementById("question-box");
+      const questionText = document.getElementById("question");
+      const popup = document.getElementById("popup");
+      const overlay = document.getElementById("overlay");
+
+      if (currentQuestion < questions.length - 1) {
+        questionText.innerText = questions[currentQuestion];
+      } else {
+        questionBox.style.display = "none";
+        popup.classList.add("show");
+        overlay.classList.add("show");
+        document.body.style.background = "linear-gradient(135deg, #f6d365, #fda085)";
+      }
+    }
+  </script>
+</body>
+</html>
+
