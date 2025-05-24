@@ -1,0 +1,101 @@
+!DOCTYPE html
+html lang=en
+head
+  meta charset=UTF-8
+  meta name=viewport content=width=device-width, initial-scale=1.0
+  titleExam Timepasstitle
+  style
+    @import url('httpsfonts.googleapis.comcss2family=Nunitowght@400;700&display=swap');
+
+     {
+      margin 0;
+      padding 0;
+      box-sizing border-box;
+      font-family 'Nunito', sans-serif;
+    }
+
+    body {
+      height 100vh;
+      display flex;
+      justify-content center;
+      align-items center;
+      background linear-gradient(135deg, #74ebd5, #ACB6E5);
+      color #333;
+      transition background 0.5s ease-in-out;
+    }
+
+    .container {
+      background white;
+      padding 3rem 2rem;
+      border-radius 20px;
+      box-shadow 0 0 30px rgba(0, 0, 0, 0.1);
+      text-align center;
+      max-width 90%;
+      width 400px;
+      transition all 0.5s ease-in-out;
+      animation fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        transform scale(0.9);
+        opacity 0;
+      }
+      to {
+        transform scale(1);
+        opacity 1;
+      }
+    }
+
+    h1 {
+      margin-bottom 2rem;
+      font-size 1.5rem;
+      color #444;
+    }
+
+    button {
+      padding 0.8rem 2rem;
+      font-size 1rem;
+      background #ff6b6b;
+      border none;
+      border-radius 10px;
+      color white;
+      cursor pointer;
+      transition background 0.3s;
+    }
+
+    buttonhover {
+      background #ee5253;
+    }
+  style
+head
+body
+  div class=container id=question-box
+    h1 id=questionAre you really prepared for your exams, or just acting coolh1
+    button onclick=nextQuestion()Yesbutton
+  div
+
+  script
+    const questions = [
+      Do you actually open the textbook, or just turn pages like Instagram reels,
+      Is your study plan 100% real or 90% dream,
+      Poyi irunn padikkada 😤📚
+    ];
+
+    let currentQuestion = 0;
+
+    function nextQuestion() {
+      currentQuestion++;
+      const questionBox = document.getElementById(question-box);
+      const questionText = document.getElementById(question);
+
+      if (currentQuestion  questions.length) {
+        questionText.innerText = questions[currentQuestion];
+      } else {
+        questionBox.innerHTML = `h1${questions[questions.length - 1]}h1button onclick=location.reload()Start Overbutton`;
+        document.body.style.background = linear-gradient(135deg, #f6d365, #fda085);
+      }
+    }
+  script
+body
+html
